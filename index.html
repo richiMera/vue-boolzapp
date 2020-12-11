@@ -43,7 +43,7 @@
           </div>
           <div class="chats_container">
             <ul class="normal_list">
-              <li v-for="contact in contacts" ><img :src="contact.avatar" alt=""><span>{{contact.name}}</span></li>
+              <li @click="showActiveChat(index)" v-for="(contact, index) in contacts" ><img :src="contact.avatar" alt=""><span>{{contact.name}}</span></li>
             </ul>
           </div>
         </div>
@@ -52,10 +52,10 @@
           <div class="header_right_block">
             <div class="info_friend">
               <div class="info_friend_avatar">
-                <img src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png" alt="">
+                <img src="https://cdn.iconscout.com/icon/free/png-256/avatar-380-456332.png" alt="">
               </div>
               <div class="info_friend_infos">
-                <h3>Riccardo Ferrari</h3>
+                <h3>Michele</h3>
                 <p>Ultimo accesso oggi alle 10/01/2020 16:15:22</p>
               </div>
             </div>
@@ -71,9 +71,10 @@
 
           <div class="main_chat_field">
             <ul class="main_chat_list">
-              <li class="sent">Hai portato a psasso il cane?</li>
+              <li v-for="(message, index) in activeChat.messages"> {{message.text}}</li>
+              <!-- <li class="sent">Hai portato a psasso il cane?</li>
               <li class="sent">Ricordati di dargli da mangiare</li>
-              <li class="arrived">Tutto fatto!</li>
+              <li class="received">Tutto fatto!</li> -->
             </ul>
           </div>
 

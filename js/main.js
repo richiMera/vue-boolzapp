@@ -2,6 +2,7 @@ var app = new Vue({
 
   el: "#root",
   data: {
+    activeChat: {},
     contacts: [
 	{
 		name: 'Michele',
@@ -86,11 +87,14 @@ var app = new Vue({
 			}
 		],
 	},
+
 ]
 
-
   },
+  // created: this.activeChat = "",
   methods: {
-
+    showActiveChat: function(index) {
+      this.activeChat = this.contacts[index];
+    }
   }
 });
