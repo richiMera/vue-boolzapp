@@ -43,7 +43,7 @@
           </div>
           <div class="chats_container">
             <ul class="normal_list">
-              <li></li>
+              <li v-for="contact in contacts" ><img :src="contact.avatar" alt=""><span>{{contact.name}}</span></li>
             </ul>
           </div>
         </div>
