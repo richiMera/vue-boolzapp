@@ -52,10 +52,10 @@
           <div class="header_right_block">
             <div class="info_friend">
               <div class="info_friend_avatar">
-                <img src="https://cdn.iconscout.com/icon/free/png-256/avatar-380-456332.png" alt="">
+                <img :src="activeChat.avatar" alt="">
               </div>
               <div class="info_friend_infos">
-                <h3>Michele</h3>
+                <h3>{{activeChat.name}}</h3>
                 <p>Ultimo accesso oggi alle 10/01/2020 16:15:22</p>
               </div>
             </div>
