@@ -75,7 +75,7 @@ var app = new Vue({
 	},
 	{
 		name: 'Luisa',
-		avatar: 'https://e7.pngegg.com/pngimages/510/349/png-clipart-computer-icons-teacher-avatar-miscellaneous-child-thumbnail.png',
+		avatar: 'https://image.flaticon.com/icons/png/512/194/194938.png',
 		visible: true,
 		messages: [
 			{
@@ -99,7 +99,16 @@ var app = new Vue({
     showActiveChat: function(index) {
       this.activeChat = this.contacts[index];
     },
+    sentNewMessage: function() {
+      var newObj = {
+        date: "",
+        text: this.newMessage,
+        status: "sent"
+      };
+      this.activeChat.messages.push(newObj)
+    }
   }
 });
+
 
 // creare un oggetto con data-text-status(sent), dove text= newMessage

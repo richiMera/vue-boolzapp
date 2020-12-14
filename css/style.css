@@ -146,6 +146,7 @@ body {
 .chats_container {
   width: 100%;
   height: calc(100% - 200px);
+  /* flex-grow: 1; */
   overflow-Y: scroll;
 }
 .chats_container ul {
@@ -193,6 +194,7 @@ body {
   border-radius: 10px;
   padding: 0 10px;
   margin: 5px 0;
+  word-break: break-all;
 }
 /* .main_chat_field ul li p {
 
@@ -243,3 +245,7 @@ body {
   border: 0px;
   padding: 0 15px;
 }
+
+/* li {
+  background-color: blue;
+} */
