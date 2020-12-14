@@ -99,16 +99,37 @@ var app = new Vue({
     showActiveChat: function(index) {
       this.activeChat = this.contacts[index];
     },
+    answerOk: function () {
+      var receivedObj = {
+        date: "",
+        text: "ok",
+        status: "received"
+      };
+
+       this.activeChat.messages.push(receivedObj);
+    },
     sentNewMessage: function() {
       var newObj = {
         date: "",
         text: this.newMessage,
         status: "sent"
       };
-      this.activeChat.messages.push(newObj)
+
+
+      this.activeChat.messages.push(newObj);
+
+
+      setTimeout(this.answerOk, 1000);
     }
   }
 });
+
+
+
+
+
+
+
 
 
 // creare un oggetto con data-text-status(sent), dove text= newMessage
