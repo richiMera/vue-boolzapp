@@ -2,6 +2,8 @@ var app = new Vue({
 
   el: "#root",
   data: {
+    bemba: "",
+    newMessage: "",
     activeChat: {},
     contacts: [
 	{
@@ -23,7 +25,8 @@ var app = new Vue({
 				date: '10/01/2020 16:15:22',
 				text: 'Tutto fatto!',
 				status: 'received'
-			}
+			},
+
 		],
 	},
 	{
@@ -72,7 +75,7 @@ var app = new Vue({
 	},
 	{
 		name: 'Luisa',
-		avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSosTxC4IeaFI_pZEUi3snN4517xvVnNRjaWw&usqp=CAU',
+		avatar: 'https://e7.pngegg.com/pngimages/510/349/png-clipart-computer-icons-teacher-avatar-miscellaneous-child-thumbnail.png',
 		visible: true,
 		messages: [
 			{
@@ -95,6 +98,8 @@ var app = new Vue({
   methods: {
     showActiveChat: function(index) {
       this.activeChat = this.contacts[index];
-    }
+    },
   }
 });
+
+// creare un oggetto con data-text-status(sent), dove text= newMessage

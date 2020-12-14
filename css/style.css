@@ -13,6 +13,10 @@ img {
  margin-right: 10px;
 }
 
+body {
+  font-family: 'Lato', sans-serif;
+}
+
 #root {
   display: flex;
   justify-content: center;
@@ -20,7 +24,6 @@ img {
   width: 100%;
   height: 100vh;
   background: -webkit-linear-gradient(top, #009688, #009688 20%, #DADBD4 20%, #DADBD4);
-
 }
 
 .container {
@@ -86,6 +89,7 @@ img {
   width: 100%;
   height: 80px;
   background-color: #8EDAFC;
+  cursor: pointer;
 }
 .active_notification_icon i {
   width: 50px;
@@ -97,6 +101,7 @@ img {
   line-height: 50px;
   text-align: center;
   margin-right: 10px;
+  /* cursor: pointer; */
 }
 .text_active_notifications h3 {
   font-weight: 400;

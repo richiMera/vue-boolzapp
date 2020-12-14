@@ -4,6 +4,8 @@
     <head>
       <meta charset="utf-8">
       <link rel="stylesheet" href="css/style.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.css" integrity="sha512-f73UKwzP1Oia45eqHpHwzJtFLpvULbhVpEJfaWczo/ZCV5NWSnK4vLDnjTaMps28ocZ05RbI83k2RlQH92zy7A==" crossorigin="anonymous" />
       <title></title>
       <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -56,7 +58,7 @@
               </div>
               <div class="info_friend_infos">
                 <h3>{{activeChat.name}}</h3>
-                <p>Ultimo accesso oggi alle 10/01/2020 16:15:22</p>
+                <p>Ultimo Accesso alle ....</p>
               </div>
             </div>
 
@@ -83,7 +85,7 @@
               <i class="far fa-smile"></i>
             </div>
 
-            <input type="text" name="" value="" placeholder="Scrivi un messaggio">
+            <input v-on:keyup.13="sentNewMessage" type="text" name="" v-model:="" placeholder="Scrivi un messaggio">
             <div class="microphone_container">
               <i class="fas fa-microphone"></i>
             </div>
