@@ -4,6 +4,7 @@
     <head>
       <meta charset="utf-8">
       <link rel="stylesheet" href="css/style.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.7/dayjs.min.js" integrity="sha512-kZ+x2gdehn6OZMWZSp3Vt5R+v9hQTYEATQwaUfWquhxbvNVAy6IRtYs7asdyxKUTqG0I5ZqBqnzcBrpnHJCAGw==" crossorigin="anonymous"></script>
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.css" integrity="sha512-f73UKwzP1Oia45eqHpHwzJtFLpvULbhVpEJfaWczo/ZCV5NWSnK4vLDnjTaMps28ocZ05RbI83k2RlQH92zy7A==" crossorigin="anonymous" />
@@ -40,12 +41,12 @@
           <div class="input_search_new_chat_field">
             <div class="input_field">
               <i class="fas fa-search"></i>
-              <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
+              <input  v-on:keyup.13="filtterName" type="text" name="" v-model="filter" placeholder="Cerca o inizia una nuova chat">
             </div>
           </div>
           <div class="chats_container">
             <ul class="normal_list">
-              <li @click="showActiveChat(index)" v-for="(contact, index) in contacts" ><img :src="contact.avatar" alt=""><span>{{contact.name}}</span></li>
+              <li :class="(activeIndex == index) ? 'active': ''" v-if="contact.visible" @click="showActiveChat(index)" v-for="(contact, index) in contacts" ><img :src="contact.avatar" alt=""><span>{{contact.name}}</span></li>
             </ul>
           </div>
         </div>
@@ -75,7 +76,7 @@
             <ul class="main_chat_list">
               <li v-for="(message, index) in activeChat.messages" :class="message.status"> <p>{{message.text}}</p> <span>{{message.date}}</span> </li>
 
-            
+
               <!-- <li class="sent">Hai portato a psasso il cane?</li>
               <li class="sent">Ricordati di dargli da mangiare</li>
               <li class="received">Tutto fatto!</li> -->
@@ -83,16 +84,24 @@
           </div>
 
           <div class="footer_input_field">
-            <div class="smile_container">
-              <i class="far fa-smile"></i>
+
+            <div v-if="visible" class="emoji_container">
+              <ul class="inline_list">
+                <i v-for="icon in icons" :class=" icon.name + ' ' + icon.color "></i>
+              </ul>
             </div>
 
-            <input v-on:keyup.13="sentNewMessage" type="text" name="" v-model="newMessage" placeholder="Scrivi un messaggio">
+            <div class="smile_container">
+              <i @click="openEmoji" :class=" (visible) ? 'fas fa-times':'far fa-smile' "></i>
+            </div>
+
+            <input @keydown.enter="sentNewMessage" type="text" name="" v-model="newMessage" placeholder="Scrivi un messaggio">
             <div class="microphone_container">
               <i class="fas fa-microphone"></i>
             </div>
 
           </div>
+
         </div>
       </div>
     </div>

@@ -2,7 +2,10 @@ var app = new Vue({
 
   el: "#root",
   data: {
-    bemba: "",
+    activeIndex: 0,
+    filter: "",
+    visible: false,
+    nameArray: [],
     newMessage: "",
     activeChat: {},
     contacts: [
@@ -91,6 +94,72 @@ var app = new Vue({
 		],
 	},
 
+],
+    icons : [
+  {
+    name: "fas fa-dog",
+    color: "yellow"
+  },
+  {
+    name: "fas fa-fish",
+    color: "yellow"
+  },
+  {
+    name: "fas fa-tractor",
+    color: "black"
+  },
+  {
+    name: "fas fa-hippo",
+    color: "yellow"
+  },
+  {
+    name: "fas fa-spider",
+    color: "yellow"
+  },
+  {
+    name: "fas fa-apple-alt",
+    color: "red"
+  },
+  {
+    name: "fas fa-carrot",
+    color: "orange"
+  },
+  {
+    name: "fas fa-lemon",
+    color: "yellow"
+  },
+  {
+    name: "fas fa-dragon",
+    color: "red"
+  },
+  {
+    name: "fas fa-pepper-hot",
+    color: "red"
+  },
+  {
+    name: "fas fa-space-shuttle",
+    color: "black"
+  },
+  {
+    name: " fas fa-truck-monster",
+    color: "black"
+  },
+  {
+    name: " fas fa-wheelchair",
+    color: "black"
+  },
+  {
+    name: " fas fa-tram",
+    color: "orange"
+  },
+  {
+    name: "fas fa-fighter-jet",
+    color: "black"
+  },
+  {
+    name: "fas fa-helicopter",
+    color: "black"
+  },
 ]
 
   },
@@ -98,29 +167,59 @@ var app = new Vue({
   methods: {
     showActiveChat: function(index) {
       this.activeChat = this.contacts[index];
+      this.activeIndex = index
     },
     answerOk: function () {
       var receivedObj = {
-        date: "",
+        date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
         text: "ok",
         status: "received"
       };
 
        this.activeChat.messages.push(receivedObj);
+
+
     },
     sentNewMessage: function() {
       var newObj = {
-        date: "",
+        date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
         text: this.newMessage,
         status: "sent"
       };
 
 
       this.activeChat.messages.push(newObj);
+      this.newMessage = "";
 
 
       setTimeout(this.answerOk, 1000);
+    },
+    openEmoji: function() {
+
+      if(this.visible == false) {
+        this.visible = true
+      } else{
+        this.visible = false
+      };
+
+    },
+    filtterName: function () {
+      // this.contacts.visible = false;
+      for (var i = 0; i < this.contacts.length; i++) {
+        if(this.filter == "") {
+          this.contacts[i].visible = true
+        } else if (this.contacts[i].name.includes(this.filter) ) {
+          this.contacts[i].visible = true
+      } else {
+          this.contacts[i].visible = false
+      }
+      console.log(this.contacts[i].name[i]);
+      // }
+      console.log();
+
     }
+  }
+
   }
 });
 
