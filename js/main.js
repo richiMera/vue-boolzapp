@@ -5,8 +5,8 @@ var app = new Vue({
     activeIndex: 0,
     filter: "",
     visibleEmoji: false,
-    visibleIcon: false,
     visible:false,
+    visibleDeleteBox: false,
     nameArray: [],
     newMessage: "",
     activeChat: {},
@@ -237,6 +237,9 @@ var app = new Vue({
 
 
     }
+  },
+  showDeleteBox: function(index) {
+
   }
 
   }

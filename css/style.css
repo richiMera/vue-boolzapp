@@ -190,7 +190,7 @@ body {
   display: flex;
   align-items: center;
   min-width: 300px;
-  min-height: 50px;
+  min-height: 40px;
   border-radius: 10px;
   padding: 0 10px;
   margin: 5px 0;
@@ -209,10 +209,14 @@ body {
   color: lightgray;
 }
 .main_chat_field ul li i {
+  display: none;
   position: absolute;
   top: 2px;
   right: 5px;
   color: #B1B1B1;
+}
+.main_chat_field ul li:hover i {
+  display: block;
 }
 .sent {
   background-color: #D5F9BA;
@@ -222,6 +226,15 @@ body {
 .received {
   background-color: white;
   align-self: flex-start;
+}
+.delete_box {
+  position: absolute;
+  top: 80%;
+  right: 10px;
+  width: 200px;
+  height: 100px;
+  background-color: white;
+  z-index: 2;
 }
 
 .footer_input_field {
