@@ -4,7 +4,9 @@ var app = new Vue({
   data: {
     activeIndex: 0,
     filter: "",
-    visible: false,
+    visibleEmoji: false,
+    visibleIcon: false,
+    visible:false,
     nameArray: [],
     newMessage: "",
     activeChat: {},
@@ -90,7 +92,26 @@ var app = new Vue({
 				date: '10/01/2020 15:50:00',
 				text: 'Si, ma preferirei andare al cinema',
 				status: 'received'
-			}
+			},
+
+		],
+	},
+  {
+		name: 'Laura',
+		avatar: 'https://image.flaticon.com/icons/png/512/194/194938.png',
+		visible: true,
+		messages: [
+			{
+				date: '10/01/2020 15:30:55',
+				text: 'Alla fine sei andata in palestra?',
+				status: 'sent'
+			},
+			{
+				date: '10/01/2020 15:50:00',
+				text: 'Si, ma solo per poco tempo',
+				status: 'received'
+			},
+
 		],
 	},
 
@@ -196,10 +217,10 @@ var app = new Vue({
     },
     openEmoji: function() {
 
-      if(this.visible == false) {
-        this.visible = true
+      if(this.visibleEmoji == false) {
+        this.visibleEmoji = true
       } else{
-        this.visible = false
+        this.visibleEmoji = false
       };
 
     },
@@ -208,14 +229,12 @@ var app = new Vue({
       for (var i = 0; i < this.contacts.length; i++) {
         if(this.filter == "") {
           this.contacts[i].visible = true
-        } else if (this.contacts[i].name.includes(this.filter) ) {
+        } else if (this.contacts[i].name.toLowerCase().includes(this.filter) ) {
           this.contacts[i].visible = true
       } else {
           this.contacts[i].visible = false
       }
-      console.log(this.contacts[i].name[i]);
-      // }
-      console.log();
+
 
     }
   }

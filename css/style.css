@@ -77,7 +77,7 @@ body {
 .info_user_icons ul i,
 .info_friend_icon ul i {
   font-size: 19px;
-  color: lightgray;
+  color: #B1B1B1;
 }
 
 
@@ -195,6 +195,7 @@ body {
   padding: 0 10px;
   margin: 5px 0;
   word-break: break-all;
+  cursor: pointer;
 }
 /* .main_chat_field ul li p {
 
@@ -206,6 +207,12 @@ body {
   font-size: 10px;
   align-self: flex-end;
   color: lightgray;
+}
+.main_chat_field ul li i {
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  color: #B1B1B1;
 }
 .sent {
   background-color: #D5F9BA;
