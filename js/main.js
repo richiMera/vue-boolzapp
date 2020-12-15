@@ -241,11 +241,11 @@ var app = new Vue({
   },
   showDeleteBox: function(index) {
 
-    if (this.deleteIndex == index) {
-      this.visibleDeleteBox = true;
-    } else {
-      this.visibleDeleteBox = false
-    }
+  
+    this.deleteIndex = index;
+    this.visibleDeleteBox = true;
+
+
   }
 
   }
