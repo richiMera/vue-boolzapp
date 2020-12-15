@@ -74,17 +74,18 @@
 
           <div class="main_chat_field">
             <ul class="main_chat_list">
-              <li  v-for="(message, index) in activeChat.messages" :class="message.status"> <p>{{message.text}}</p> <span>{{message.date}}</span>
-              <i @click="visibleDeleteBox[index] = true"  class="fas fa-chevron-down"></i>
-              <div v-if="visibleDeleteBox" class="delete_box">
 
+              <li @click="showDeleteBox(index)"  v-for="(message, index) in activeChat.messages" :class="message.status"> <p>{{message.text}}</p> <span>{{message.date}}</span>
+              <i @click="visibleDeleteBox = true"  class="fas fa-chevron-down"></i>
+              <div v-if="visibleDeleteBox && " class="delete_box">
+                <p>Message info</p>
+                <p>Delete message</p>
               </div>
               </li>
 
 
-              <!-- <li class="sent">Hai portato a psasso il cane?</li>
-              <li class="sent">Ricordati di dargli da mangiare</li>
-              <li class="received">Tutto fatto!</li> -->
+
+
             </ul>
           </div>
 

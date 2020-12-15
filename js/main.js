@@ -3,6 +3,7 @@ var app = new Vue({
   el: "#root",
   data: {
     activeIndex: 0,
+    deleteIndex: 0,
     filter: "",
     visibleEmoji: false,
     visible:false,
@@ -225,7 +226,7 @@ var app = new Vue({
 
     },
     filtterName: function () {
-      // this.contacts.visible = false;
+
       for (var i = 0; i < this.contacts.length; i++) {
         if(this.filter == "") {
           this.contacts[i].visible = true
@@ -240,6 +241,11 @@ var app = new Vue({
   },
   showDeleteBox: function(index) {
 
+    if (this.deleteIndex == index) {
+      this.visibleDeleteBox = true;
+    } else {
+      this.visibleDeleteBox = false
+    }
   }
 
   }
