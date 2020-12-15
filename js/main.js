@@ -4,8 +4,10 @@ var app = new Vue({
   data: {
     activeIndex: 0,
     deleteIndex: 0,
+    deleteChat: 0,
     filter: "",
     visibleEmoji: false,
+    visibleMessage: true,
     visible:false,
     visibleDeleteBox: false,
     nameArray: [],
@@ -241,12 +243,29 @@ var app = new Vue({
   },
   showDeleteBox: function(index) {
 
-  
+
     this.deleteIndex = index;
     this.visibleDeleteBox = true;
 
 
+  },
+  deleteMesssage: function(index) {
+    this.visibleDeleteBox = false;
+    this.deleteChat = index;
+    console.log(this.deleteIndex);
+    console.log(index);
+    console.log(this.contacts[index]);
+
+      if (this.deleteChat == index) {
+        this.visibleMessage = false
+      } else {
+        this.visibleMessage = true
+      }
+
+
   }
+
+
 
   }
 });
