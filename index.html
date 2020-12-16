@@ -41,16 +41,16 @@
           <div class="input_search_new_chat_field">
             <div class="input_field">
               <i class="fas fa-search"></i>
-              <input  v-on:keyup.13="filtterName" type="text" name="" v-model="filter" placeholder="Cerca o inizia una nuova chat">
+              <input  @keyup="filtterName" type="text" name="" v-model="filter" placeholder="Cerca o inizia una nuova chat">
             </div>
           </div>
           <div class="chats_container">
             <ul class="normal_list">
-              <li :class="(activeIndex == index) ? 'active': ''" v-if="contact.visible" @click="showActiveChat(index)" v-for="(contact, index) in contacts" ><img :src="contact.avatar" alt=""><span>{{contact.name}}</span></li>
+              <li :class="(activeIndex == index) ? 'active': ''" v-if="contact.visible" @click="showActiveChat(index), activeChatIndex = index" v-for="(contact, index) in contacts" ><img :src="contact.avatar" alt=""><span>{{contact.name}}</span></li>
             </ul>
           </div>
         </div>
-
+        
         <div class="right_block">
           <div class="header_right_block">
             <div class="info_friend">
@@ -75,8 +75,8 @@
           <div class="main_chat_field">
             <ul class="main_chat_list">
 
-              <li v-for="(message, index) in activeChat.messages" :class="message.status"> <p  v-if="visibleMessage">{{message.text}}</p>
-                <p v-else>Messaggio eliminato</p>
+              <li v-for="(message, index) in activeChat.messages" :class="message.status"> <p>{{message.text}}</p>
+
                  <span>{{message.date}}</span>
               <i @click="showDeleteBox(index)" class="fas fa-chevron-down"></i>
               <div v-if="visibleDeleteBox && deleteIndex == index" class="delete_box">

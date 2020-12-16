@@ -2,6 +2,7 @@ var app = new Vue({
 
   el: "#root",
   data: {
+
     activeIndex: 0,
     deleteIndex: 0,
     deleteChat: 0,
@@ -13,6 +14,7 @@ var app = new Vue({
     nameArray: [],
     newMessage: "",
     activeChat: {},
+    activeChatIndex: 0,
     contacts: [
 	{
 		name: 'Michele',
@@ -232,7 +234,7 @@ var app = new Vue({
       for (var i = 0; i < this.contacts.length; i++) {
         if(this.filter == "") {
           this.contacts[i].visible = true
-        } else if (this.contacts[i].name.toLowerCase().includes(this.filter) ) {
+        } else if (this.contacts[i].name.toLowerCase().includes(this.filter.toLowerCase()) ) {
           this.contacts[i].visible = true
       } else {
           this.contacts[i].visible = false
@@ -252,18 +254,21 @@ var app = new Vue({
   deleteMesssage: function(index) {
     this.visibleDeleteBox = false;
     this.deleteChat = index;
-    console.log(this.deleteIndex);
-    console.log(index);
-    console.log(this.contacts[index]);
 
-      if (this.deleteChat == index) {
-        this.visibleMessage = false
-      } else {
-        this.visibleMessage = true
-      }
+    delete this.contacts[this.activeChatIndex].messages[0]
+    // console.log(this.deleteIndex);
+    // console.log(index);
+    // console.log(this.contacts[index]);
+    //
+    //   if (this.deleteChat == index) {
+    //     this.visibleMessage = false
+    //   } else {
+    //     this.visibleMessage = true
+    //   }
 
 
-  }
+  },
+
 
 
 
